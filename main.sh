@@ -17,7 +17,6 @@ function installAll() {
   npm install &> /dev/null
   echo "$(tput setaf 2)Installed sniper dependencies."
   echo "$(tput setaf 2)Running sniper..."
-  npx node ./src/index.js
 }
 
 rm -rf settings.env
