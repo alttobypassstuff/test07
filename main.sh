@@ -1,5 +1,5 @@
 PACKAGE_VERSION=$(node -p -e "try { require('./package.json').version } catch { '0.0.0' }")
-LATEST_VERSION=$(curl --silent "https://raw.githubusercontent.com/localip/nitro-sniper/main/package.json" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
+LATEST_VERSION=$(curl --silent "https://github.com/alttobypassstuff/test07" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
 
 function compareVersions {
    echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }';
@@ -17,6 +17,7 @@ function installAll() {
   npm install &> /dev/null
   echo "$(tput setaf 2)Installed sniper dependencies."
   echo "$(tput setaf 2)Running sniper..."
+  npx node ./src/index.js
 }
 
 rm -rf settings.env
